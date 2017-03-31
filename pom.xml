@@ -4,8 +4,7 @@
 	<groupId>alura-design-pattern</groupId>
 	<artifactId>alura-design-pattern</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<build>
-		<sourceDirectory>src</sourceDirectory>
+	<build>		
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

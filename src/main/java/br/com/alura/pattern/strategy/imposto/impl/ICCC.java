@@ -1,6 +1,6 @@
 package br.com.alura.pattern.strategy.imposto.impl;
 
-import br.com.alura.pattern.strategy.Orcamento;
+import br.com.alura.pattern.model.Orcamento;
 import br.com.alura.pattern.strategy.imposto.Imposto;
 
 public class ICCC implements Imposto {

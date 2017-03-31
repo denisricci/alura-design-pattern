@@ -1,6 +1,6 @@
-package br.com.alura.pattern.strategy;
+package br.com.alura.pattern.strategy.imposto;
 
-import br.com.alura.pattern.strategy.imposto.Imposto;
+import br.com.alura.pattern.model.Orcamento;
 
 public class CalculadoraDeImposto {
 
