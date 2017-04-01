@@ -1,5 +1,6 @@
-package br.com.alura.pattern.chainofresponsability;
+package br.com.alura.pattern.chainofresponsability.desconto.impl;
 
+import br.com.alura.pattern.chainofresponsability.desconto.Desconto;
 import br.com.alura.pattern.model.Orcamento;
 
 public class MaisDeCincoItens extends Desconto {
