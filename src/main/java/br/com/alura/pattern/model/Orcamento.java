@@ -28,6 +28,9 @@ public class Orcamento {
 	}
 
 	public List<Item> getItens() {
+		if(itens == null){
+			itens = new ArrayList<>();
+		}
 		return itens;
 	}
 

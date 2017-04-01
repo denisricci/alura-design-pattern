@@ -15,7 +15,7 @@ public class ICCCTest {
 	@Before
 	public void init(){
 		calculadoraDeImposto = new CalculadoraDeImposto();
-		ICCC = new ICCC();
+		ICCC = new ICCC();		
 	}
 	
 	@Test

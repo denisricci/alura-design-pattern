@@ -4,6 +4,8 @@ public class Conta {
 
 	private String titular;
 	private Double saldo;
+	private Integer numero;
+	private Integer agencia;
 
 	public Conta(String titular, Double saldo) {
 		super();
@@ -25,6 +27,22 @@ public class Conta {
 
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
+	}
+
+	public Integer getNumero() {
+		return numero;
+	}
+
+	public Integer getAgencia() {
+		return agencia;
+	}
+
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
+
+	public void setAgencia(Integer agencia) {
+		this.agencia = agencia;
 	}
 
 }
