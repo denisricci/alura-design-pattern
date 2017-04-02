@@ -5,8 +5,17 @@ import java.util.stream.Collectors;
 
 import br.com.alura.pattern.model.Item;
 import br.com.alura.pattern.model.Orcamento;
+import br.com.alura.pattern.strategy.imposto.Imposto;
 
 public class IHIT extends TemplateDeImpostoCondicional {
+
+	public IHIT(Imposto imposto) {
+		super(imposto);
+	}
+
+	public IHIT() {
+		super();
+	}
 
 	@Override
 	protected double taxacaoMaxima(Orcamento orcamento) {

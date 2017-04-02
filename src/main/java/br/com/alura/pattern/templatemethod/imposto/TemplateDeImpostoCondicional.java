@@ -3,15 +3,23 @@ package br.com.alura.pattern.templatemethod.imposto;
 import br.com.alura.pattern.model.Orcamento;
 import br.com.alura.pattern.strategy.imposto.Imposto;
 
-public abstract class TemplateDeImpostoCondicional implements Imposto{
+public abstract class TemplateDeImpostoCondicional extends Imposto{
+	
+	public TemplateDeImpostoCondicional(Imposto imposto) {
+		super(imposto);
+	}
+	
+	public TemplateDeImpostoCondicional() {
+		super();
+	}
 
 	@Override
-	public double calcula(Orcamento orcamento) {
+	public final double calcula(Orcamento orcamento) {
 		if(deveUsarTaxacaoMaxima(orcamento)){
-			return taxacaoMaxima(orcamento);
+			return taxacaoMaxima(orcamento) + calculaOutroImposto(orcamento);
 		}
 				
-		return taxacaoMinima(orcamento);
+		return taxacaoMinima(orcamento) + calculaOutroImposto(orcamento);
 	}
 
 	abstract double taxacaoMaxima(Orcamento orcamento);

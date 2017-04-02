@@ -1,8 +1,17 @@
 package br.com.alura.pattern.templatemethod.imposto;
 
 import br.com.alura.pattern.model.Orcamento;
+import br.com.alura.pattern.strategy.imposto.Imposto;
 
-public class IKCV extends TemplateDeImpostoCondicional{
+public class IKCV extends TemplateDeImpostoCondicional {
+
+	public IKCV(Imposto imposto) {
+		super(imposto);
+	}
+
+	public IKCV() {
+		super();
+	}
 
 	@Override
 	double taxacaoMaxima(Orcamento orcamento) {
