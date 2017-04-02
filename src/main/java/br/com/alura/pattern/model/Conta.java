@@ -2,6 +2,12 @@ package br.com.alura.pattern.model;
 
 import java.time.LocalDate;
 
+import br.com.alura.pattern.state.conta.EstadoContaCorrente;
+
+/**
+ * @author dricci
+ *
+ */
 public class Conta {
 
 	private String titular;
@@ -9,11 +15,31 @@ public class Conta {
 	private Integer numero;
 	private Integer agencia;
 	private LocalDate dataAbertura;
+	
+	/**
+	 * O ideal é que o estado seja protected e não possua getters e setters, porém para isso
+	 *é necessário que o EstadoContaCorrente esteja no mesmo pacote, porém na organização atual do
+	 *projeto isso não ocorreu, por isso foi necessário adicionar o getter e o setter, isso abre brecha
+	 *para que alguém altere o estado da conta manualmente, o que deve ser evitado.
+	 */
+	private EstadoContaCorrente estado;
 
 	public Conta(String titular, Double saldo) {
 		super();
 		this.titular = titular;
 		this.saldo = saldo;
+		if(saldo > 0){			
+		}else{
+			
+		}
+	}
+	
+	public void sacar(double valor){
+		this.estado.sacar(valor, this);
+	}
+	
+	public void depositar(double valor){
+		this.estado.depositar(valor,this);
 	}
 
 	public String getTitular() {
@@ -103,6 +129,14 @@ public class Conta {
 		} else if (!titular.equals(other.titular))
 			return false;
 		return true;
+	}
+
+	public EstadoContaCorrente getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EstadoContaCorrente estado) {
+		this.estado = estado;
 	}
 
 }
