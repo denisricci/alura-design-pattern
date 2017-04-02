@@ -11,7 +11,7 @@ public class Negativa implements EstadoContaCorrente {
 
 	@Override
 	public void depositar(double valor, Conta conta) {
-		conta.setSaldo(conta.getSaldo() + conta.getSaldo() * 0.95);
+		conta.setSaldo(conta.getSaldo() + valor * 0.95);
 		defineEstado(conta);
 	}
 		
