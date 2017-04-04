@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import br.com.alura.pattern.observer.AcaoAposGerarNota;
+
 public class NotaFiscalBuilder {
 	
 	private String razaoSocial;
@@ -13,6 +15,15 @@ public class NotaFiscalBuilder {
 	private Calendar dataEmissao;
 	private List<ItemDaNota> todosOsItens = new ArrayList<>();
 	private String observacao;
+	
+	private List<AcaoAposGerarNota> acoes;
+	
+	public NotaFiscalBuilder aposContruirExecutar(AcaoAposGerarNota acao){
+		if(acoes==null) acoes=new ArrayList<>();
+		this.acoes.add(acao);
+		return this;
+	}
+	
 	
 	public NotaFiscalBuilder paraEmpresa(String razaoSocial){
 		this.razaoSocial=razaoSocial;
@@ -42,6 +53,8 @@ public class NotaFiscalBuilder {
 	}
 	
 	public NotaFiscal build(){
-		return new NotaFiscal(razaoSocial, cnpj, valorBruto, imposto, dataEmissao, todosOsItens, observacao);
+		NotaFiscal notaFiscal = new NotaFiscal(razaoSocial, cnpj, valorBruto, imposto, dataEmissao, todosOsItens, observacao);
+		acoes.stream().forEach(a->a.executa(notaFiscal));		
+		return notaFiscal; 
 	}				
 }
